@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            Müşteri Adı Soyadı: <h:inputText value="#{musteriBean.entity.adiSoyadi}"/>
+
+            Telefon: <h:inputText value="#{musteriBean.entity.telefon}"/>
+
+            Adres: <h:inputText value="#{musteriBean.entity.adres}"/>
+
+            ŞehirId: <h:inputText value="#{musteriBean.entity.sehirId}"/>
+            <h:commandButton action ="#{musteriBean.create}" value="Kaydet"/>
+
+
+        </h:form>
+
+        <hr />
+
+
+        <h:form>
+            <h:dataTable value="#{musteriBean.list}" var="c">
+
+                <h:column>
+                    <f:facet name="header" >ID</f:facet>
+                        #{c.id}
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header" >ADISOYADI</f:facet>
+                        #{c.adiSoyadi}
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header" >TELEFON</f:facet>
+                        #{c.telefon}
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header" >ADRES</f:facet>
+                        #{c.adres}
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header" >SEHIRID</f:facet>
+                        #{c.sehirId}
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header" >DELETE</f:facet>
+                    <h:commandButton action ="#{musteriBean.delete(c)}" value="Sil"/>
+                    #{c.sehirId}
+
+                </h:column>
+
+
+            </h:dataTable>
+        </h:form>
+        
+        <h1>Create New Kategori</h1>
+        <h:form>
+            Adı: <h:inputText value="#{kategoriController.adi}" /><br />
+            ParentId: <h:inputText value="#{kategoriController.parentId}" /><br />
+            <h:commandButton action ="#{kategoriController.create()}" value="Kaydet"/>
+            
+        </h:form>
+
+
+
+
+    </h:body>
+</html>
+
